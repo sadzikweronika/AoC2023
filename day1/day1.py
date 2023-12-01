@@ -33,22 +33,22 @@ def part1_generator(data):
     return total
 
 
-def replace_in_string(s):
+def replace_in_line(line):
     for text, num in TEXT_TO_NUM.items():
-        s = s.replace(text, text[0] + num + text[-1])
-    return s
+        line = line.replace(text, text[0] + num + text[-1])
+    return line
 
 
-def replace_in_string_reduce(s):
+def replace_in_line_reduce(line):
     def replace_items(current_string, item):
         text, num = item
         return current_string.replace(text, text[0] + num + text[-1])
 
-    return reduce(replace_items, TEXT_TO_NUM.items(), s)
+    return reduce(replace_items, TEXT_TO_NUM.items(), line)
 
 
 def part2():
-    replaced_data = map(replace_in_string, DATA)
+    replaced_data = map(replace_in_line, DATA)
     return part1(replaced_data)
 
 
