@@ -13,11 +13,18 @@ TEXT_TO_NUM = {'one': '1',
 
 
 def part1(data):
-    results = []
+    total = 0
     for line in data:
         digits = [s for s in line if s.isdigit()]
-        results.append(int(digits[0] + digits[-1]))
-    return sum(results)
+        total += int(digits[0] + digits[-1])
+
+    return total
+
+
+def part1_oneliner(data):
+    # it's trash regarding readabilty tbh
+    total = sum(int(digits[0] + digits[-1]) for line in data for digits in ["".join(c for c in line if c.isdigit())])
+    return total
 
 
 def replace_in_string(s):
