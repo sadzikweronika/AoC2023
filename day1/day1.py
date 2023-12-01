@@ -15,7 +15,7 @@ TEXT_TO_NUM = {'one': '1',
 def part1(data):
     results = []
     for line in data:
-        digits = [str(s) for s in line if s.isdigit()]
+        digits = [s for s in line if s.isdigit()]
         results.append(int(digits[0] + digits[-1]))
     return sum(results)
 
