@@ -17,7 +17,9 @@ def part1(data):
 
 def part1_oneliner(data):
     # it's trash regarding readabilty tbh
-    total = sum(int(digits[0] + digits[-1]) for line in data for digits in [[s for s in line if s.isdigit()]])
+    total = sum(int(digits[0] + digits[-1])
+                for line in data
+                for digits in [[s for s in line if s.isdigit()]])
     return total
 
 
@@ -38,7 +40,11 @@ def replace_in_string(s):
 
 
 def replace_in_string_reduce(s):
-    return reduce(lambda s, item: s.replace(item[0], item[0][0] + item[1] + item[0][-1]), TEXT_TO_NUM.items(), s)
+    def replace_items(current_string, item):
+        text, num = item
+        return current_string.replace(text, text[0] + num + text[-1])
+
+    return reduce(replace_items, TEXT_TO_NUM.items(), s)
 
 
 def part2():
