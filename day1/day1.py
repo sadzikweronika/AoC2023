@@ -1,5 +1,6 @@
 import aoc_lube
 from num2words import num2words
+from functools import reduce
 
 DATA = aoc_lube.fetch(year=2023, day=1).splitlines()
 TEXT_TO_NUM = {num2words(num): str(num) for num in range(1, 10)}
@@ -34,6 +35,10 @@ def replace_in_string(s):
     for text, num in TEXT_TO_NUM.items():
         s = s.replace(text, text[0] + num + text[-1])
     return s
+
+
+def replace_in_string_reduce(s):
+    return reduce(lambda s, item: s.replace(item[0], item[0][0] + item[1] + item[0][-1]), TEXT_TO_NUM.items(), s)
 
 
 def part2():
