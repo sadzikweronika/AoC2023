@@ -23,7 +23,7 @@ def part1(data):
 
 def part1_oneliner(data):
     # it's trash regarding readabilty tbh
-    total = sum(int(digits[0] + digits[-1]) for line in data for digits in ["".join(c for c in line if c.isdigit())])
+    total = sum(int(digits[0] + digits[-1]) for line in data for digits in [[s for s in line if s.isdigit()]])
     return total
 
 
