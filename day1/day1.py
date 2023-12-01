@@ -1,15 +1,8 @@
 import aoc_lube
+from num2words import num2words
 
 DATA = aoc_lube.fetch(year=2023, day=1).splitlines()
-TEXT_TO_NUM = {'one': '1',
-               'two': '2',
-               'three': '3',
-               'four': '4',
-               'five': '5',
-               'six': '6',
-               'seven': '7',
-               'eight': '8',
-               'nine': '9'}
+TEXT_TO_NUM = {num2words(num): str(num) for num in range(1, 10)}
 
 
 def part1(data):
@@ -49,5 +42,5 @@ def part2():
 
 
 if __name__ == '__main__':
-    print("Day 1 Part 1 result:", part1(DATA))
-    print("Day 1 Part 2 result:", part2())
+    print('Day 1 Part 1 result:', part1(DATA))
+    print('Day 1 Part 2 result:', part2())
