@@ -27,6 +27,16 @@ def part1_oneliner(data):
     return total
 
 
+def part1_generator(data):
+    total = 0
+    for line in data:
+        first_digit = next(s for s in line if s.isdigit())
+        last_digit = next(s for s in reversed(line) if s.isdigit())
+        total += int(first_digit + last_digit)
+
+    return total
+
+
 def replace_in_string(s):
     for text, num in TEXT_TO_NUM.items():
         s = s.replace(text, text[0] + num + text[-1])
