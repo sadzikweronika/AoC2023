@@ -26,11 +26,11 @@ def replace_in_string(s):
     return s
 
 
-def part2(data):
-    replaced_data = map(replace_in_string, data)
+def part2():
+    replaced_data = map(replace_in_string, DATA)
     return part1(replaced_data)
 
 
 if __name__ == '__main__':
     print("Day 1 Part 1 result:", part1(DATA))
-    print("Day 1 Part 2 result:", part2(DATA))
+    print("Day 1 Part 2 result:", part2())
